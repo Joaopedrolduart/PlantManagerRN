@@ -8,8 +8,9 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-//import Feather from 'react-native-vector-icons/Feather';
+import Feather from 'react-native-vector-icons/Feather';
 import wateringImg from '../assets/watering.png';
+import colors from 'tailwindcss/colors';
 
 export function Home() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -33,8 +34,8 @@ export function Home() {
       <TouchableOpacity
         activeOpacity={0.7}
         className="h-14 w-14 items-center justify-center rounded-2xl bg-green-600">
-        {/*<Text className="text-base font-medium text-white"> > </Text>
-        <Feather name="chevron-right" size={30} color="#fff" />*/}
+        <Feather name="chevron-right" size={30} color={colors.white} />
+        {/*<Text className="text-base font-medium text-white"> > </Text>*/}
       </TouchableOpacity>
     </SafeAreaView>
   );
