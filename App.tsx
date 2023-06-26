@@ -7,17 +7,12 @@
 
 import React from 'react';
 import {SafeAreaView, StatusBar, Text, useColorScheme} from 'react-native';
+import {Home} from './src/screens/Home';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
-  return (
-    <SafeAreaView className="bg-neutral-300 dark:bg-slate-900">
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-
-      <Text className="text-2xl font-bold dark:text-white"> Hello </Text>
-    </SafeAreaView>
-  );
+  return <Home />;
 }
 
 export default App;
