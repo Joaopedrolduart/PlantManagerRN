@@ -19,16 +19,16 @@ export function Home() {
     <SafeAreaView className="flex-1 items-center justify-around bg-white dark:bg-slate-900">
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
 
-      <Text className="text-center text-3xl font-bold text-gray-500 dark:text-white">
+      <Text className="text-center text-3xl font-bold text-gray-600 dark:text-white">
         {' '}
         Gerencie {'\n'} suas plantas {'\n'} de forma fácil{' '}
       </Text>
 
       <Image source={wateringImg} className="w-full" resizeMode="contain" />
 
-      <Text className="text-center text-2xl font-bold text-gray-500 dark:text-white ">
-        Não esqueça mais de regar suas plantas. Nós cuidamos de lembrar sempre
-        que precisar.
+      <Text className="text-center text-xl font-bold text-gray-500 dark:text-white ">
+        Não esqueça mais de regar suas plantas. Nós cuidamos de lembrar você
+        sempre que precisar.
       </Text>
 
       <TouchableOpacity
