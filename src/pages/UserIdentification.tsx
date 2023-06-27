@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import {
   Keyboard,
@@ -16,9 +17,20 @@ export function UserIdentification() {
   const [isInvalid, setIsInvalid] = useState(false);
   const [username, setUsername] = useState<string>();
 
+  const navigator = useNavigation();
+
   function handleChangeText(value: string) {
     setIsInvalid(!value);
     setUsername(value);
+  }
+
+  function handleSubmit() {
+    if (!username) {
+      setIsInvalid(true);
+      return;
+    }
+
+    navigator.navigate('Confirmation');
   }
 
   return (
@@ -48,7 +60,7 @@ export function UserIdentification() {
             />
 
             <View className="w-3/4 px-4">
-              <Button />
+              <Button title="Confirmar" onPress={handleSubmit} />
             </View>
           </View>
         </TouchableWithoutFeedback>

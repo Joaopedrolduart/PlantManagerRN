@@ -1,6 +1,6 @@
 import React from 'react';
-import {Confirmation} from './src/pages/Confirmation';
+import {Routes} from './src/Routes';
 
 export default function App() {
-  return <Confirmation />;
+  return <Routes />;
 }
