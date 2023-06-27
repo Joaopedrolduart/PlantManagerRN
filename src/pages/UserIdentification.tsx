@@ -54,7 +54,7 @@ export function UserIdentification() {
             <TextInput
               placeholder="Digite um nome"
               onChangeText={handleChangeText}
-              className={`w-4/5 border-b border-gray-300 p-3 text-center text-lg text-gray-600 focus:border-green-500 dark:text-white 
+              className={`w-4/5 border-b border-gray-300 p-3 text-center text-lg text-gray-600 focus:border-green-600 dark:text-white 
               ${isInvalid && 'border-red-500'}
               ${username && 'border-green-500'}`}
             />
