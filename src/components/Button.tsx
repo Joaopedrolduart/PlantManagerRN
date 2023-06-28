@@ -14,7 +14,7 @@ export function Button({title, ...props}: ButtonProps) {
         className="h-14 items-center justify-center rounded-lg bg-green-600 dark:bg-green-600/75"
         activeOpacity={0.7}
         {...props}>
-        <Text className="text-base font-medium text-white ">{title}</Text>
+        <Text className="font-subtitle text-base text-white ">{title}</Text>
       </TouchableOpacity>
     </StyledComponent>
   );

@@ -11,11 +11,11 @@ export function Confirmation() {
       <Text className="text-emoji text-[75px]">😊</Text>
 
       <View className="space-y-4">
-        <Text className="text-center text-2xl font-semibold text-gray-600 dark:text-white">
+        <Text className="text-center font-subtitle text-2xl text-gray-600 dark:text-white">
           Prontinho
         </Text>
 
-        <Text className="text-center text-lg text-gray-600 dark:text-white">
+        <Text className="text-center font-body text-lg text-gray-600 dark:text-white">
           Agora vamos começar a cuidar das suas plantinhas com muito cuidado.
         </Text>
       </View>

@@ -20,6 +20,7 @@ module.exports = {
       fontFamily: {
         heading: ['Poppins-Bold'],
         body: ['Poppins-Regular'],
+        subtitle: ['Poppins-SemiBold'],
       },
     },
   },
