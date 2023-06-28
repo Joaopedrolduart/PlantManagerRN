@@ -7,6 +7,7 @@ import wateringImg from '../assets/watering.png';
 import colors from 'tailwindcss/colors';
 import {Heading} from '../components/Heading';
 import {Text} from '../components/Text';
+
 export function Home() {
   const navigator = useNavigation();
   return (
@@ -17,7 +18,7 @@ export function Home() {
 
       <Image source={wateringImg} className="w-full" resizeMode="contain" />
 
-      <Text className="text-center  ">
+      <Text className="text-center">
         Não esqueça mais de regar suas plantas. Nós cuidamos de lembrar você
         sempre que precisar.
       </Text>

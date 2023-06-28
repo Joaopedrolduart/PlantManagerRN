@@ -1,6 +1,7 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 import {Header} from '../components/Header';
+import {Text} from '../components/Text';
 
 export function PlantSelector() {
   return (
@@ -9,12 +10,8 @@ export function PlantSelector() {
         <Header title="João" subtitle="Olá," />
 
         <View>
-          <Text className="text-base font-medium text-gray-600 dark:text-white">
-            Em qual ambiente
-          </Text>
-          <Text className="text-base text-gray-600 dark:text-white">
-            você quer colocar sua planta?
-          </Text>
+          <Text>Em qual ambiente</Text>
+          <Text>você quer colocar sua planta?</Text>
         </View>
       </View>
     </View>
