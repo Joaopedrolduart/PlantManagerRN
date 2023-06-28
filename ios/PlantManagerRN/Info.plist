@@ -55,6 +55,8 @@
 	<array>
 		<string>Poppins-Italic.ttf</string>
 		<string>Poppins-Regular.ttf</string>
+		<string>LexendPeta.ttf</string>
+		<string>Poppins-Bold.ttf</string>
 	</array>
 </dict>
 </plist>
