@@ -20,7 +20,7 @@ export function Header({title, subtitle}: HeaderProps) {
         </Text>
       </View>
 
-      <Image source={UserImg} className="" />
+      <Image source={UserImg} className="h-14 w-14 rounded-full" />
     </View>
   );
 }
