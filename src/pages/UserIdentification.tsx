@@ -45,7 +45,7 @@ export function UserIdentification() {
                 {username ? '😆' : '😃'}
               </Text>
 
-              <Text className="text-center font-subtitle text-2xl text-gray-600 dark:text-white">
+              <Text className="text-center font-heading text-2xl text-gray-600 dark:text-white">
                 Como podemos {'\n'}
                 chamar você?
               </Text>
@@ -54,7 +54,7 @@ export function UserIdentification() {
             <TextInput
               placeholder="Digite um nome"
               onChangeText={handleChangeText}
-              className={`w-4/5 border-b border-gray-300 p-3 text-center font-body text-lg text-gray-600 focus:border-green-600 dark:text-white 
+              className={`w-4/5 border-b border-gray-300 p-3 text-center font-body text-lg text-gray-500 focus:border-green-600 dark:text-white 
               ${isInvalid && 'border-red-500'}
               ${username && 'border-green-500'}`}
             />

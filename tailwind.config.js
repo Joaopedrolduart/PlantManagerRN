@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -20,7 +22,9 @@ module.exports = {
       fontFamily: {
         heading: ['Poppins-Bold'],
         body: ['Poppins-Regular'],
-        subtitle: ['Poppins-SemiBold'],
+      },
+      textColor: {
+        emoji: colors.black,
       },
     },
   },
