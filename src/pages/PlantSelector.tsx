@@ -1,7 +1,8 @@
 import React from 'react';
-import {View} from 'react-native';
+import {FlatList, View} from 'react-native';
 import {Header} from '../components/Header';
 import {Text} from '../components/Text';
+import {EnvironmentButton} from '../components/EnviromentButton';
 
 export function PlantSelector() {
   return (
@@ -14,6 +15,17 @@ export function PlantSelector() {
           <Text>você quer colocar sua planta?</Text>
         </View>
       </View>
+      <FlatList
+        data={[1, 2, 3, 4, 5]}
+        renderItem={({item}) => (
+          <EnvironmentButton
+            title="sala"
+            state={(item === 1 && 'active') || undefined}
+          />
+        )}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+      />
     </View>
   );
 }
