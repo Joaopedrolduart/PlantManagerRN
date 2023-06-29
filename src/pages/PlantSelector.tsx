@@ -20,7 +20,7 @@ export function PlantSelector() {
         renderItem={({item}) => (
           <EnvironmentButton
             title="sala"
-            state={(item === 1 && 'active') || undefined}
+            state={(item && 'active') || undefined}
           />
         )}
         horizontal
