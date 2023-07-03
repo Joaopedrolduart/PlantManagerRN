@@ -30,7 +30,7 @@ export function EnvironmentButton({title, state = 'default'}: Props) {
     <StyledComponent
       component={TouchableOpacity}
       className={clsx(
-        'mr-1.5 h-10 w-20 items-center justify-center rounded-xl',
+        'mx-1.5 h-10 w-20 items-center justify-center rounded-xl',
         buttonVariants[state],
       )}>
       <Text className={clsx('capitalize', textVariants[state])}>{title}</Text>

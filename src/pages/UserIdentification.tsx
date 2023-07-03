@@ -41,7 +41,7 @@ export function UserIdentification() {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View className="w-full flex-1 items-center justify-center space-y-10 px-4">
             <View className="space-y-6">
-              <Text className="text-emoji text-center text-4xl">
+              <Text className="text-center text-4xl text-emoji">
                 {username ? '😆' : '😃'}
               </Text>
 

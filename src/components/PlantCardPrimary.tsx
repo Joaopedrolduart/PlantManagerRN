@@ -1,7 +1,9 @@
 import React from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity, TouchableOpacityProps} from 'react-native';
 
-interface PlantProps extends TouchableOpacity {
+import {SvgFromUri} from 'react-native-svg';
+
+interface PlantProps extends TouchableOpacityProps {
   data: {
     name: string;
     photo: string;
@@ -11,9 +13,10 @@ interface PlantProps extends TouchableOpacity {
 export const PlantCardPrimary = ({data, ...rest}: PlantProps) => {
   return (
     <TouchableOpacity
-      className="m-10 max-w-3xl flex-1 items-center rounded-lg bg-inherit py-10"
+      className="flex-1 items-center rounded-3xl bg-gray-200 py-8"
       {...rest}>
-      <Text className="my-16 bg-green-700 font-heading"> {data.name} </Text>
+      <SvgFromUri uri={data.photo} />
+      <Text className="font-heading text-green-700"> {data.name} </Text>
     </TouchableOpacity>
   );
 };
