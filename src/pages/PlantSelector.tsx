@@ -52,7 +52,7 @@ export function PlantSelector() {
 
   useEffect(() => {
     async function fetchPlants() {
-      const {data} = await api.get('plants?_sort=title&_order=asc');
+      const {data} = await api.get('plants?_sort=name&_order=asc');
       setPlants(data);
     }
 
@@ -77,7 +77,7 @@ export function PlantSelector() {
           renderItem={({item}) => (
             <EnvironmentButton
               title={item.title}
-              state={(item && 'active') || undefined}
+              state={(item && 'default') || undefined}
             />
           )}
           horizontal
