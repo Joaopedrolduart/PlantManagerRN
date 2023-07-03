@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity, TouchableOpacityProps} from 'react-native';
 import {StyledComponent} from 'nativewind';
 import clsx from 'clsx';
 import {Style} from 'nativewind/dist/style-sheet/runtime';
@@ -10,7 +10,7 @@ type Variants = {
   [key in States]: Style | string;
 };
 
-type Props = {
+type Props = TouchableOpacityProps & {
   title: string;
   state?: States;
 };

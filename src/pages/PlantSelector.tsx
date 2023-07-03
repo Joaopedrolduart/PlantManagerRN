@@ -4,6 +4,7 @@ import {Header} from '../components/Header';
 import {EnvironmentButton} from '../components/EnviromentButton';
 import api from '../services/api';
 import {PlantCardPrimary} from '../components/PlantCardPrimary';
+import {tw} from '../lib/tailwind';
 
 interface EnviromentProps {
   key: string;
@@ -26,6 +27,11 @@ interface PlantProps {
 export function PlantSelector() {
   const [enviroments, setEnviroments] = useState<EnviromentProps[]>([]);
   const [plants, setPlants] = useState<PlantProps[]>([]);
+  const [enviromentSelected, setEnviromentSelected] = useState('all');
+
+  function handleEnviromentSelected(enviroment: string) {
+    setEnviromentSelected(enviroment);
+  }
 
   useEffect(() => {
     async function fetchEnviroment() {
@@ -64,24 +70,28 @@ export function PlantSelector() {
       <View className="mt-6 space-y-6 px-8">
         <Header title="João" subtitle="Olá," />
 
-        <Text className="font-heading text-base text-gray-500 dark:text-white">
-          Em qual ambiente
-        </Text>
-        <Text className="font-body text-base text-gray-500 dark:text-white">
-          você quer colocar sua planta?
-        </Text>
+        <View>
+          <Text className="font-heading text-base text-gray-500 dark:text-white">
+            Em qual ambiente
+          </Text>
+          <Text className="font-body text-base text-gray-500 dark:text-white">
+            você quer colocar sua planta?
+          </Text>
+        </View>
       </View>
-      <View style={{paddingLeft: 25}}>
+      <View>
         <FlatList
           data={enviroments}
           renderItem={({item}) => (
             <EnvironmentButton
               title={item.title}
-              state={(item && 'default') || undefined}
+              state={item.key === enviromentSelected ? 'active' : 'default'}
+              onPress={() => handleEnviromentSelected(item.key)}
             />
           )}
           horizontal
           showsHorizontalScrollIndicator={false}
+          contentContainerStyle={tw`pl-8 justify-center`}
         />
       </View>
 
@@ -91,6 +101,7 @@ export function PlantSelector() {
           renderItem={({item}) => <PlantCardPrimary data={item} />}
           showsVerticalScrollIndicator={false}
           numColumns={2}
+          contentContainerStyle={tw``}
         />
       </View>
     </View>
