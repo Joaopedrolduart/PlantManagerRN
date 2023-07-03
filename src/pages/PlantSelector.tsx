@@ -27,10 +27,21 @@ interface PlantProps {
 export function PlantSelector() {
   const [enviroments, setEnviroments] = useState<EnviromentProps[]>([]);
   const [plants, setPlants] = useState<PlantProps[]>([]);
+  const [filteredPlants, setfilteredPlants] = useState<PlantProps[]>([]);
   const [enviromentSelected, setEnviromentSelected] = useState('all');
 
   function handleEnviromentSelected(enviroment: string) {
     setEnviromentSelected(enviroment);
+
+    if (enviromentSelected === 'all') {
+      return setfilteredPlants(plants);
+    }
+
+    const filtered = plants.filter(plant =>
+      plant.environments.includes(enviroment),
+    );
+
+    setfilteredPlants(filtered);
   }
 
   useEffect(() => {
@@ -97,7 +108,7 @@ export function PlantSelector() {
 
       <View className="flex-1 justify-center px-8">
         <FlatList
-          data={plants}
+          data={filteredPlants}
           renderItem={({item}) => <PlantCardPrimary data={item} />}
           showsVerticalScrollIndicator={false}
           numColumns={2}

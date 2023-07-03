@@ -16,7 +16,7 @@ export const PlantCardPrimary = ({data, ...rest}: PlantProps) => {
       className="m-2 flex-1 items-center space-y-2 rounded-3xl bg-gray-100 py-8"
       {...rest}>
       <SvgFromUri uri={data.photo} width={70} height={70} />
-      <Text className="font-heading text-green-700"> {data.name} </Text>
+      <Text className="font-heading text-green-600"> {data.name} </Text>
     </TouchableOpacity>
   );
 };
