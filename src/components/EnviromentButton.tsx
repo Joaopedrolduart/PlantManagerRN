@@ -25,14 +25,15 @@ const textVariants: Variants = {
   default: clsx`text-gray-600 dark:text-white`,
 };
 
-export function EnvironmentButton({title, state = 'default'}: Props) {
+export function EnvironmentButton({title, state = 'default', ...props}: Props) {
   return (
     <StyledComponent
       component={TouchableOpacity}
       className={clsx(
         'mx-1.5 h-10 w-20 items-center justify-center rounded-xl',
         buttonVariants[state],
-      )}>
+      )}
+      {...props}>
       <Text className={clsx('capitalize', textVariants[state])}>{title}</Text>
     </StyledComponent>
   );
