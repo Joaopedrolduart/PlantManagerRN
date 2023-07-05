@@ -8,14 +8,14 @@ import {Home} from '../pages/Home';
 import {UserIdentification} from '../pages/UserIdentification';
 import {Confirmation} from '../pages/Confirmation';
 import {PlantSelector} from '../pages/PlantSelector';
-import {PlantSave} from '../pages/PlantSave';
+import {PlantSave, PlantSaveParams} from '../pages/PlantSave';
 
 export type StackRoutesList = {
   Home: undefined;
   UserIdentification: undefined;
   Confirmation: undefined;
   PlantSelector: undefined;
-  PlantSave: undefined;
+  PlantSave: PlantSaveParams;
 };
 
 const stackRoutes = createNativeStackNavigator<StackRoutesList>();

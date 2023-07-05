@@ -12,28 +12,33 @@ import {
 import {SvgFromUri} from 'react-native-svg';
 import waterdrop from '../assets/waterdrop.png';
 import {Button} from '../components/Button';
+import {useRoute} from '@react-navigation/native';
+import {PlantType} from '../@types/PlantType';
+
+export interface PlantSaveParams {
+  plant: PlantType;
+}
 
 export function PlantSave() {
+  const route = useRoute();
+  const {plant} = route.params as PlantSaveParams;
   return (
-    <View className="flex-1 justify-between bg-slate-100">
+    <View className="flex-1 justify-between bg-gray-shape">
       <View className="flex-1 items-center justify-center px-8">
-        <SvgFromUri uri="" height={150} width={150} />
+        <SvgFromUri uri={plant.photo} height={150} width={150} />
         <Text className="font-heading text-2xl dark:text-white">
-          Nome da Planta
+          {plant.name}
         </Text>
         <Text className="mt-4 text-center font-body text-base">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel,
-          voluptate ratione debitis odit reprehenderit sint natus fugiat
-          voluptatibus illo nesciunt suscipit magnam nobis impedit atque quia
-          maiores soluta quibusdam nemo!
+          {plant.about}
         </Text>
       </View>
 
       <View className="bg-white px-5 pb-5 pt-5">
-        <View className="flex-row items-center justify-between rounded-3xl bg-cyan-50 p-5">
+        <View className="relative bottom-16 flex-row items-center justify-between rounded-3xl bg-blue-blue_light p-5">
           <Image source={waterdrop} className="h-14 w-14" />
-          <Text className="ml-5 flex-1 text-justify font-body text-cyan-700 ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          <Text className="ml-5 flex-1 text-justify font-body text-blue-blue">
+            {plant.water_tips}
           </Text>
         </View>
 

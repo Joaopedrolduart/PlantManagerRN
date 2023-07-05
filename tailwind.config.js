@@ -13,11 +13,13 @@ module.exports = {
       colors: {
         gray: {
           200: '#C4C4CC',
-          900: '121214',
+          900: '#121214',
+          shape: '#F0F0F0',
         },
         green: {
           500: '#015F43',
         },
+        blue: {blue_light: '#EBF6FF', blue: '#3D7199'},
       },
       fontFamily: {
         heading: ['Poppins-Bold'],

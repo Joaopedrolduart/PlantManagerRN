@@ -9,29 +9,17 @@ import {Load} from '../components/Load';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {StackRoutesList} from '../Routes/stack.routes';
+import {PlantType} from '../@types/PlantType';
 
 interface EnviromentProps {
   key: string;
   title: string;
 }
 
-interface PlantProps {
-  id: string;
-  name: string;
-  about: string;
-  water_tips: string;
-  photo: string;
-  environments: [string];
-  frequency: {
-    times: number;
-    repeat_every: string;
-  };
-}
-
 export function PlantSelector() {
   const [enviroments, setEnviroments] = useState<EnviromentProps[]>([]);
-  const [plants, setPlants] = useState<PlantProps[]>([]);
-  const [filteredPlants, setFilteredPlants] = useState<PlantProps[]>([]);
+  const [plants, setPlants] = useState<PlantType[]>([]);
+  const [filteredPlants, setFilteredPlants] = useState<PlantType[]>([]);
   const [enviromentSelected, setEnviromentSelected] = useState('all');
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
@@ -81,8 +69,8 @@ export function PlantSelector() {
     fetchPlants();
   }
 
-  function handlePlantSelect(_plant: PlantProps) {
-    navigator.navigate('PlantSave');
+  function handlePlantSelect(plant: PlantType) {
+    navigator.navigate('PlantSave', {plant});
   }
 
   useEffect(() => {
