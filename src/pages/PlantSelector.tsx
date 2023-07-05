@@ -7,6 +7,8 @@ import {PlantCardPrimary} from '../components/PlantCardPrimary';
 import {tw} from '../lib/tailwind';
 import {Load} from '../components/Load';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
+import {StackRoutesList} from '../Routes/stack.routes';
 
 interface EnviromentProps {
   key: string;
@@ -34,6 +36,7 @@ export function PlantSelector() {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [loadigMore, setLoadingMore] = useState(false);
+  const navigator = useNavigation<NavigationProp<StackRoutesList>>();
 
   function handleEnviromentSelected(environment: string) {
     setEnviromentSelected(environment);
@@ -76,6 +79,10 @@ export function PlantSelector() {
     setLoadingMore(true);
     setPage(oldValue => oldValue + 1);
     fetchPlants();
+  }
+
+  function handlePlantSelect(_plant: PlantProps) {
+    navigator.navigate('PlantSave');
   }
 
   useEffect(() => {
@@ -127,7 +134,7 @@ export function PlantSelector() {
       <View>
         <FlatList
           data={enviroments}
-          keyExtractor={item => item.key}
+          keyExtractor={item => String(item.key)}
           renderItem={({item}) => (
             <EnvironmentButton
               title={item.title}
@@ -144,8 +151,13 @@ export function PlantSelector() {
       <View className="flex-1 justify-center px-8">
         <FlatList
           data={filteredPlants}
-          keyExtractor={item => item.id}
-          renderItem={({item}) => <PlantCardPrimary data={item} />}
+          keyExtractor={item => String(item.id)}
+          renderItem={({item}) => (
+            <PlantCardPrimary
+              data={item}
+              onPress={() => handlePlantSelect(item)}
+            />
+          )}
           showsVerticalScrollIndicator={false}
           numColumns={2}
           onEndReachedThreshold={0.1}

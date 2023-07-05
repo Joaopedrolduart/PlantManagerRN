@@ -1,4 +1,4 @@
-import {useNavigation} from '@react-navigation/native';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {SafeAreaView, Image, TouchableOpacity} from 'react-native';
 
@@ -7,9 +7,10 @@ import wateringImg from '../assets/watering.png';
 import colors from 'tailwindcss/colors';
 import {Heading} from '../components/Heading';
 import {Text} from '../components/Text';
+import {StackRoutesList} from '../Routes/stack.routes';
 
 export function Home() {
-  const navigator = useNavigation();
+  const navigator = useNavigation<NavigationProp<StackRoutesList>>();
   return (
     <SafeAreaView className="flex-1 items-center justify-around bg-white dark:bg-slate-900">
       <Heading className="text-center">

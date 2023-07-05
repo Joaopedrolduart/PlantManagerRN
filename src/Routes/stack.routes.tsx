@@ -8,12 +8,14 @@ import {Home} from '../pages/Home';
 import {UserIdentification} from '../pages/UserIdentification';
 import {Confirmation} from '../pages/Confirmation';
 import {PlantSelector} from '../pages/PlantSelector';
+import {PlantSave} from '../pages/PlantSave';
 
 export type StackRoutesList = {
-  Welcome: undefined;
+  Home: undefined;
   UserIdentification: undefined;
   Confirmation: undefined;
   PlantSelector: undefined;
+  PlantSave: undefined;
 };
 
 const stackRoutes = createNativeStackNavigator<StackRoutesList>();
@@ -31,7 +33,7 @@ export function StackRoutes() {
             colorScheme === 'light' ? colors.white : colors.gray[800],
         },
       }}>
-      <stackRoutes.Screen name="Welcome" component={Home} />
+      <stackRoutes.Screen name="Home" component={Home} />
 
       <stackRoutes.Screen
         name="UserIdentification"
@@ -41,6 +43,8 @@ export function StackRoutes() {
       <stackRoutes.Screen name="Confirmation" component={Confirmation} />
 
       <stackRoutes.Screen name="PlantSelector" component={PlantSelector} />
+
+      <stackRoutes.Screen name="PlantSave" component={PlantSave} />
     </stackRoutes.Navigator>
   );
 }

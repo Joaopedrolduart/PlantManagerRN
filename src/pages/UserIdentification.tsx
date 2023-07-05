@@ -1,4 +1,4 @@
-import {useNavigation} from '@react-navigation/native';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import {
   Keyboard,
@@ -14,12 +14,13 @@ import {
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Button} from '../components/Button';
+import {StackRoutesList} from '../Routes/stack.routes';
 
 export function UserIdentification() {
   const [isInvalid, setIsInvalid] = useState(false);
   const [username, setUsername] = useState<string>();
 
-  const navigator = useNavigation();
+  const navigator = useNavigation<NavigationProp<StackRoutesList>>();
 
   function handleChangeText(value: string) {
     setIsInvalid(!value);
