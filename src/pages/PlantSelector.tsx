@@ -113,7 +113,7 @@ export function PlantSelector() {
   return (
     <View className="flex-1 space-y-8 ">
       <View className="mt-6 space-y-6 px-8">
-        <Header title="João" subtitle="Olá," />
+        <Header />
 
         <View>
           <Text className="font-heading text-base text-gray-500 dark:text-white">
@@ -127,6 +127,7 @@ export function PlantSelector() {
       <View>
         <FlatList
           data={enviroments}
+          keyExtractor={item => item.key}
           renderItem={({item}) => (
             <EnvironmentButton
               title={item.title}
@@ -143,6 +144,7 @@ export function PlantSelector() {
       <View className="flex-1 justify-center px-8">
         <FlatList
           data={filteredPlants}
+          keyExtractor={item => item.id}
           renderItem={({item}) => <PlantCardPrimary data={item} />}
           showsVerticalScrollIndicator={false}
           numColumns={2}

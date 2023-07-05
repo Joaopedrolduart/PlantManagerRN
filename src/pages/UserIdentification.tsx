@@ -9,8 +9,10 @@ import {
   TextInput,
   TouchableWithoutFeedback,
   View,
+  Alert,
 } from 'react-native';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Button} from '../components/Button';
 
 export function UserIdentification() {
@@ -27,8 +29,10 @@ export function UserIdentification() {
   function handleSubmit() {
     if (!username) {
       setIsInvalid(true);
-      return;
+      return Alert.alert('Insira um nome para prosseguir ✔');
     }
+
+    AsyncStorage.setItem('@plantmanager:user', username);
 
     navigator.navigate('Confirmation');
   }

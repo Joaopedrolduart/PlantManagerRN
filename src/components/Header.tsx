@@ -1,22 +1,28 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, Image} from 'react-native';
 
 import UserImg from '../assets/pfp.png';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-type HeaderProps = {
-  title: string;
-  subtitle: string;
-};
+export function Header() {
+  const [userName, setUserName] = useState<string>();
 
-export function Header({title, subtitle}: HeaderProps) {
+  useEffect(() => {
+    async function loadStorageUserName() {
+      const user = await AsyncStorage.getItem('@plantmanager:user');
+      setUserName(user || '');
+    }
+
+    loadStorageUserName();
+  }, []);
   return (
     <View className="w-full flex-row items-center justify-between">
       <View>
         <Text className="font-body text-3xl text-gray-600 dark:text-white">
-          {subtitle}
+          Olá,
         </Text>
-        <Text className="font-heading text-3xl text-gray-600 underline hover:underline-offset-4 dark:text-white">
-          {title}
+        <Text className="font-heading text-3xl text-gray-600 dark:text-white">
+          {userName}
         </Text>
       </View>
 
