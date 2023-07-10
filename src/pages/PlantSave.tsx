@@ -4,7 +4,6 @@ import {
   Text,
   View,
   Image,
-  ScrollView,
   Platform,
   TouchableOpacity,
 } from 'react-native';
@@ -14,6 +13,7 @@ import waterdrop from '../assets/waterdrop.png';
 import {Button} from '../components/Button';
 import {useRoute} from '@react-navigation/native';
 import {PlantType} from '../@types/PlantType';
+import {loadPlant} from '../lib/storage';
 import DateTimePicker, {
   DateTimePickerEvent,
 } from '@react-native-community/datetimepicker';
@@ -51,6 +51,20 @@ export function PlantSave() {
     setShowDatePicker(oldstate => !oldstate);
   }
 
+  async function handleSave() {
+    const data = await loadPlant();
+    console.log(data);
+
+    // try {
+    //   await savePlant({
+    //     ...plant,
+    //     dateTimeNotification: selectedDateTime,
+    //   });
+    // } catch {
+    //   Alert.alert('❌ Não foi possível salvar ❌');
+    // }
+  }
+
   return (
     <View className="flex-1 justify-between bg-gray-shape">
       <View className="flex-1 items-center justify-center px-8">
@@ -69,7 +83,7 @@ export function PlantSave() {
           </Text>
         </View>
 
-        <Text className="mb-2 text-center font-heading text-xs text-gray-400">
+        <Text className="text-center font-heading text-xs text-gray-400">
           Escolha o melhor horário para ser lembrado:
         </Text>
 
@@ -86,13 +100,13 @@ export function PlantSave() {
           <TouchableOpacity
             className="w-full items-center py-10"
             onPress={handleOpenDateTimePicker}>
-            <Text className="font-heading text-xl">
-              {`Mudar ${format(selectedDateTime, 'HH:mm')}`}
+            <Text className="font-heading text-2xl underline">
+              {`Horário -  ${format(selectedDateTime, 'HH:mm')}`}
             </Text>
           </TouchableOpacity>
         )}
 
-        <Button title="Cadastrar planta" onPress={() => {}} />
+        <Button title="Cadastrar planta" onPress={handleSave} />
       </View>
     </View>
   );

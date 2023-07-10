@@ -9,4 +9,5 @@ export type PlantType = {
     times: number;
     repeat_every: string;
   };
+  dateTimeNotification: Date;
 };
