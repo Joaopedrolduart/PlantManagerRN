@@ -13,7 +13,7 @@ import waterdrop from '../assets/waterdrop.png';
 import {Button} from '../components/Button';
 import {useRoute} from '@react-navigation/native';
 import {PlantType} from '../@types/PlantType';
-import {loadPlant} from '../lib/storage';
+import {savePlant} from '../lib/storage';
 import DateTimePicker, {
   DateTimePickerEvent,
 } from '@react-native-community/datetimepicker';
@@ -52,17 +52,14 @@ export function PlantSave() {
   }
 
   async function handleSave() {
-    const data = await loadPlant();
-    console.log(data);
-
-    // try {
-    //   await savePlant({
-    //     ...plant,
-    //     dateTimeNotification: selectedDateTime,
-    //   });
-    // } catch {
-    //   Alert.alert('❌ Não foi possível salvar ❌');
-    // }
+    try {
+      await savePlant({
+        ...plant,
+        dateTimeNotification: selectedDateTime,
+      });
+    } catch {
+      Alert.alert('❌ Não foi possível salvar ❌');
+    }
   }
 
   return (
