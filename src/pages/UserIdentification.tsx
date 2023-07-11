@@ -30,14 +30,21 @@ export function UserIdentification() {
   function handleSubmit() {
     if (!username) {
       setIsInvalid(true);
-      return Alert.alert('Insira um nome para prosseguir ✔');
+      return Alert.alert('Insira um nome para prosseguir ❌');
     }
 
     try {
       AsyncStorage.setItem('@plantmanager:user', username);
-      navigator.navigate('Confirmation');
+      navigator.navigate('Confirmation', {
+        title: 'Prontinho',
+        subtitle:
+          'Agora vamos começar a cuidar das suas plantinhas com muito cuidado.',
+        buttonTitle: 'Começar',
+        icon: 'smile',
+        nextScreen: 'PlantSelector',
+      });
     } catch {
-      Alert.alert('Não foi possível salvar o seu nome ❌');
+      Alert.alert('❌ Não foi possível salvar o seu nome ❌');
     }
   }
 

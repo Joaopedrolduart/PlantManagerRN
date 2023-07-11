@@ -6,16 +6,18 @@ import colors from 'tailwindcss/colors';
 
 import {Home} from '../pages/Home';
 import {UserIdentification} from '../pages/UserIdentification';
-import {Confirmation} from '../pages/Confirmation';
+import {Confirmation, ConfirmationParams} from '../pages/Confirmation';
 import {PlantSelector} from '../pages/PlantSelector';
 import {PlantSave, PlantSaveParams} from '../pages/PlantSave';
+import {MyPlants} from '../pages/MyPlants';
 
 export type StackRoutesList = {
   Home: undefined;
   UserIdentification: undefined;
-  Confirmation: undefined;
+  Confirmation: ConfirmationParams;
   PlantSelector: undefined;
   PlantSave: PlantSaveParams;
+  MyPlants: undefined;
 };
 
 const stackRoutes = createNativeStackNavigator<StackRoutesList>();
@@ -45,6 +47,8 @@ export function StackRoutes() {
       <stackRoutes.Screen name="PlantSelector" component={PlantSelector} />
 
       <stackRoutes.Screen name="PlantSave" component={PlantSave} />
+
+      <stackRoutes.Screen name="MyPlants" component={MyPlants} />
     </stackRoutes.Navigator>
   );
 }
