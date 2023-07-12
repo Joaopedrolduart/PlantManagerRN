@@ -42,14 +42,14 @@ export function MyPlants() {
     <View className="flex-1 space-y-5 bg-white px-8  pt-12 dark:bg-slate-900">
       <Header />
 
-      <View className="flex-row items-center justify-between rounded-3xl bg-blue-blue_light p-5">
+      <View className="flex-row items-center justify-between rounded-3xl bg-blue-blue_light p-5 dark:bg-blue-950">
         <Image className="h-16 w-16" source={waterdrop} />
 
-        <Text className="ml-5 flex-1 text-left font-body text-blue-blue">
+        <Text className="ml-5 flex-1 text-left font-body text-blue-blue dark:text-blue-blue_light">
           {nextWatered}
         </Text>
       </View>
-      <Text className="font-heading text-2xl text-gray-500">
+      <Text className="font-heading text-2xl text-gray-500 dark:text-gray-100">
         Próximas regadas
       </Text>
       <View className="w-full flex-1">

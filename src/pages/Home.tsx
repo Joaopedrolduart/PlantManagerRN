@@ -12,7 +12,7 @@ import {StackRoutesList} from '../Routes/stack.routes';
 export function Home() {
   const navigator = useNavigation<NavigationProp<StackRoutesList>>();
   return (
-    <SafeAreaView className="flex-1 items-center justify-around bg-white dark:bg-slate-900">
+    <SafeAreaView className="flex-1 items-center justify-around bg-gray-shape dark:bg-slate-900">
       <Heading className="text-center">
         Gerencie {'\n'} suas plantas {'\n'} de forma fácil
       </Heading>
