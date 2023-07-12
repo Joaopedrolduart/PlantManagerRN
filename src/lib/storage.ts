@@ -36,27 +36,23 @@ export async function loadPlant(): Promise<PlantType[]> {
     const data = await AsyncStorage.getItem('@plantmanager:plants');
     const plants = data ? (JSON.parse(data) as StoragePlantType) : {};
 
-    const plantsSorted = Object.keys(plants).map(plant => {
-      return {
+    const plantsSorted = Object.keys(plants)
+      .map(plant => ({
         ...plants[plant].data,
         hour: format(
           new Date(plants[plant].data.dateTimeNotification),
           'HH:mm',
         ),
-      };
-    });
-    sort((a, b) =>
-      Math.floor(
-        new Date(a.dateTimeNotification).getTime() / 1000 -
-          Math.floor(new Date(b.dateTimeNotification).getTime() / 1000),
-      ),
-    );
+      }))
+      .sort((a, b) =>
+        Math.floor(
+          new Date(a.dateTimeNotification).getTime() / 1000 -
+            Math.floor(new Date(b.dateTimeNotification).getTime() / 1000),
+        ),
+      );
 
     return plantsSorted;
   } catch (error) {
     throw new Error(error as any);
-  }
-  function sort(_arg0: (a: any, b: any) => number) {
-    throw new Error('Function not implemented.');
   }
 }

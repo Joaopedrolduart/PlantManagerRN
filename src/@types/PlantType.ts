@@ -5,6 +5,7 @@ export type PlantType = {
   water_tips: string;
   photo: string;
   environments: [string];
+  hour: string;
   frequency: {
     times: number;
     repeat_every: string;

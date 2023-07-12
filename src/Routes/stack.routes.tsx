@@ -7,9 +7,8 @@ import colors from 'tailwindcss/colors';
 import {Home} from '../pages/Home';
 import {UserIdentification} from '../pages/UserIdentification';
 import {Confirmation, ConfirmationParams} from '../pages/Confirmation';
-import {PlantSelector} from '../pages/PlantSelector';
 import {PlantSave, PlantSaveParams} from '../pages/PlantSave';
-import {MyPlants} from '../pages/MyPlants';
+import AuthRoutes from './tab.routes';
 
 export type StackRoutesList = {
   Home: undefined;
@@ -44,11 +43,11 @@ export function StackRoutes() {
 
       <stackRoutes.Screen name="Confirmation" component={Confirmation} />
 
-      <stackRoutes.Screen name="PlantSelector" component={PlantSelector} />
+      <stackRoutes.Screen name="PlantSelector" component={AuthRoutes} />
 
       <stackRoutes.Screen name="PlantSave" component={PlantSave} />
 
-      <stackRoutes.Screen name="MyPlants" component={MyPlants} />
+      <stackRoutes.Screen name="MyPlants" component={AuthRoutes} />
     </stackRoutes.Navigator>
   );
 }
