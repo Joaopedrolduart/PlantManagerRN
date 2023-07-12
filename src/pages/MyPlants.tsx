@@ -7,6 +7,7 @@ import {loadPlant} from '../lib/storage';
 import {formatDistance} from 'date-fns';
 import {pt} from 'date-fns/locale';
 import {PlantCardSecundary} from '../components/PlantCardSecundary';
+import {Load} from '../components/Load';
 
 export function MyPlants() {
   const [myPlants, setMyPlants] = useState<PlantType[]>([]);
@@ -33,8 +34,12 @@ export function MyPlants() {
     loadStorageData();
   }, []);
 
+  if (loading) {
+    return <Load />;
+  }
+
   return (
-    <View className="flex-1 space-y-5 px-8 pt-12">
+    <View className="flex-1 space-y-5 bg-white px-8  pt-12 dark:bg-slate-900">
       <Header />
 
       <View className="flex-row items-center justify-between rounded-3xl bg-blue-blue_light p-5">

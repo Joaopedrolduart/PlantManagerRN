@@ -94,9 +94,6 @@ export function PlantSelector() {
     }
 
     fetchEnviroment();
-  }, []);
-
-  useEffect(() => {
     fetchPlants();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -106,7 +103,7 @@ export function PlantSelector() {
   }
 
   return (
-    <View className="flex-1 space-y-8 ">
+    <View className="flex-1 space-y-8 bg-white dark:bg-slate-900">
       <View className="mt-6 space-y-6 px-8">
         <Header />
 

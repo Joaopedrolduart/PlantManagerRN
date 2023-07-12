@@ -2,7 +2,7 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import colors from 'tailwindcss/colors';
 import {PlantSelector} from '../pages/PlantSelector';
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import {MyPlants} from '../pages/MyPlants';
 
 const AppTab = createBottomTabNavigator();
@@ -15,8 +15,7 @@ const AuthRoutes = () => {
         tabBarInactiveTintColor: colors.gray[500],
         tabBarLabelPosition: 'beside-icon',
         tabBarStyle: {
-          paddingVertical: 20,
-          height: 88,
+          height: 75,
         },
         headerShown: false,
       }}>
@@ -37,7 +36,7 @@ const AuthRoutes = () => {
         options={{
           // eslint-disable-next-line react/no-unstable-nested-components
           tabBarIcon: ({size, color}) => (
-            <Icon name="md-menu" size={size} color={color} />
+            <Icon name="format-list-bulleted" size={size} color={color} />
           ),
         }}
       />

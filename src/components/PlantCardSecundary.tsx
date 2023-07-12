@@ -19,10 +19,10 @@ interface PlantProps extends TouchableOpacityProps {
 export const PlantCardSecundary = ({data, ...rest}: PlantProps) => {
   return (
     <TouchableOpacity
-      className="my-2 w-full flex-row rounded-3xl bg-gray-shape px-5 py-6"
+      className="my-2 w-full flex-row rounded-3xl bg-gray-shape px-5  py-6 dark:bg-green-500/40"
       {...rest}>
       <SvgFromUri uri={data.photo} width={50} height={50} />
-      <Text className="ml-2 mt-4 flex-1 font-heading text-base text-gray-500">
+      <Text className="ml-2 mt-4 flex-1 font-heading text-base text-gray-500 dark:text-white">
         {data.name}
       </Text>
 
