@@ -18,10 +18,10 @@ export function Header() {
   return (
     <View className="w-full flex-row items-center justify-between">
       <View>
-        <Text className="font-body text-3xl text-gray-600 dark:text-white">
+        <Text className="font-body text-3xl text-gray-600 dark:text-gray-shape">
           Olá,
         </Text>
-        <Text className="font-heading text-3xl text-gray-600 dark:text-white">
+        <Text className="font-heading text-3xl text-gray-600 dark:text-gray-shape">
           {userName}
         </Text>
       </View>

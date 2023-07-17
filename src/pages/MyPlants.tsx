@@ -72,7 +72,7 @@ export function MyPlants() {
           {nextWatered}
         </Text>
       </View>
-      <Text className="font-heading text-2xl text-gray-500 dark:text-gray-100">
+      <Text className="font-heading text-2xl text-gray-500 dark:text-gray-shape">
         Próximas regadas
       </Text>
       <View className="w-full flex-1">
