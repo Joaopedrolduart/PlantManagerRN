@@ -82,10 +82,10 @@ export function PlantSave() {
     <View className="flex-1 justify-between bg-gray-shape dark:bg-slate-900">
       <View className="flex-1 items-center justify-center px-8">
         <SvgFromUri uri={plant.photo} height={150} width={150} />
-        <Text className="font-heading text-2xl text-gray-500 dark:text-white">
+        <Text className="font-heading text-2xl text-gray-500 dark:text-green-600">
           {plant.name}
         </Text>
-        <Text className="mt-4 text-center font-body text-gray-500  dark:text-white">
+        <Text className="mt-4 text-center font-body text-gray-500  dark:text-gray-shape">
           {plant.about}
         </Text>
       </View>
@@ -98,7 +98,7 @@ export function PlantSave() {
           </Text>
         </View>
 
-        <Text className="text-center font-heading text-xs text-gray-400 dark:text-white">
+        <Text className="text-center font-heading text-xs text-gray-400 dark:text-gray-shape">
           Escolha o melhor horário para ser lembrado:
         </Text>
 
@@ -115,7 +115,7 @@ export function PlantSave() {
           <TouchableOpacity
             className="w-full items-center py-10"
             onPress={handleOpenDateTimePicker}>
-            <Text className="font-heading text-2xl text-gray-500  underline dark:text-white">
+            <Text className="font-heading text-2xl text-gray-500  underline dark:text-green-600">
               {`Horário -  ${format(selectedDateTime, 'HH:mm')}`}
             </Text>
           </TouchableOpacity>
