@@ -6,6 +6,7 @@ import {
   Image,
   Platform,
   TouchableOpacity,
+  SafeAreaView,
 } from 'react-native';
 
 import {SvgFromUri} from 'react-native-svg';
@@ -79,7 +80,7 @@ export function PlantSave() {
   }
 
   return (
-    <View className="flex-1 justify-between bg-gray-shape dark:bg-slate-900">
+    <SafeAreaView className="flex-1 justify-between bg-gray-shape dark:bg-slate-900">
       <View className="flex-1 items-center justify-center px-8">
         <SvgFromUri uri={plant.photo} height={150} width={150} />
         <Text className="font-heading text-2xl text-gray-500 dark:text-green-600">
@@ -120,9 +121,8 @@ export function PlantSave() {
             </Text>
           </TouchableOpacity>
         )}
-
         <Button title="Cadastrar planta" onPress={handleSave} />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

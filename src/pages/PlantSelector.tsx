@@ -1,5 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {FlatList, View, Text, ActivityIndicator} from 'react-native';
+import {
+  FlatList,
+  View,
+  Text,
+  ActivityIndicator,
+  SafeAreaView,
+} from 'react-native';
 import {Header} from '../components/Header';
 import {EnvironmentButton} from '../components/EnviromentButton';
 import api from '../services/api';
@@ -103,7 +109,7 @@ export function PlantSelector() {
   }
 
   return (
-    <View className="flex-1 space-y-8 bg-white dark:bg-slate-900">
+    <SafeAreaView className="flex-1 space-y-8 bg-white dark:bg-slate-900">
       <View className="mt-6 space-y-6 px-8">
         <Header />
 
@@ -152,6 +158,6 @@ export function PlantSelector() {
           }
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
