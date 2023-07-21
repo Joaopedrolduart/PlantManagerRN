@@ -8,6 +8,7 @@ import colors from 'tailwindcss/colors';
 import {Heading} from '../components/Heading';
 import {Text} from '../components/Text';
 import {StackRoutesList} from '../Routes/stack.routes';
+import notifications from '../lib/notifications';
 
 export function Home() {
   const navigator = useNavigation<NavigationProp<StackRoutesList>>();
@@ -28,6 +29,21 @@ export function Home() {
         activeOpacity={0.7}
         className="h-14 w-14 items-center justify-center rounded-2xl bg-green-600"
         onPress={() => navigator.navigate('UserIdentification')}>
+        <Feather name="chevron-right" size={32} color={colors.white} />
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        activeOpacity={0.7}
+        className="h-14 w-14 items-center justify-center rounded-2xl bg-red-600"
+        onPress={() =>
+          notifications.schduleNotification({
+            title: 'Heeey, 🌱',
+            body:
+              'HORA DE REGAR AS SUAS PLANTAS' +
+              new Date(Date.now() + 30 * 1000),
+            date: new Date(Date.now() + 30 * 1000),
+          })
+        }>
         <Feather name="chevron-right" size={32} color={colors.white} />
       </TouchableOpacity>
     </SafeAreaView>

@@ -1,4 +1,5 @@
-import PushNotification from 'react-native-push-notification';
+import PushNotification, {Importance} from 'react-native-push-notification';
+import 'react-native-get-random-values';
 import {v4 as uuidv4} from 'uuid';
 
 type NotificationData = {
@@ -21,14 +22,23 @@ class Notifications {
       requestPermissions: false,
     });
 
+    PushNotification.cancelAllLocalNotifications();
+
     PushNotification.createChannel(
       {
         channelId: 'reminders',
         channelName: 'Task reminder notifications',
         channelDescription: 'Reminder for any task,',
+        importance: Importance.HIGH,
       },
-      () => {},
+      created => {
+        console.log(created);
+      },
     );
+
+    PushNotification.channelBlocked('reminders', rn => {
+      console.log('CH --- ', rn);
+    });
 
     PushNotification.getScheduledLocalNotifications(rn => {
       console.log('SN --- ', rn);
@@ -51,6 +61,10 @@ class Notifications {
       date: data.date,
       playSound: data.sound,
       repeatType: data.repeat,
+    });
+
+    PushNotification.getScheduledLocalNotifications(rn => {
+      console.log('SN --- ', rn);
     });
 
     return plantId;
