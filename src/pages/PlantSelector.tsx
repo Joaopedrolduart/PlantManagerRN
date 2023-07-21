@@ -1,15 +1,15 @@
-import React, {useEffect, useState} from 'react';
-import {FlatList, View, Text, ActivityIndicator} from 'react-native';
-import {Header} from '../components/Header';
-import {EnvironmentButton} from '../components/EnviromentButton';
+import React, { useEffect, useState } from 'react';
+import { FlatList, View, Text, ActivityIndicator, SafeAreaView } from 'react-native';
+import { Header } from '../components/Header';
+import { EnvironmentButton } from '../components/EnviromentButton';
 import api from '../services/api';
-import {PlantCardPrimary} from '../components/PlantCardPrimary';
-import {tw} from '../lib/tailwind';
-import {Load} from '../components/Load';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {NavigationProp, useNavigation} from '@react-navigation/native';
-import {StackRoutesList} from '../Routes/stack.routes';
-import {PlantType} from '../@types/PlantType';
+import { PlantCardPrimary } from '../components/PlantCardPrimary';
+import { tw } from '../lib/tailwind';
+import { Load } from '../components/Load';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { StackRoutesList } from '../Routes/stack.routes';
+import { PlantType } from '../@types/PlantType';
 
 interface EnviromentProps {
   key: string;
@@ -41,7 +41,7 @@ export function PlantSelector() {
   }
 
   async function fetchPlants() {
-    const {data} = await api.get(
+    const { data } = await api.get(
       `plants?_sort=name&_order=asc&_page=${page}&_limit=6`,
     );
     if (!data) {
@@ -70,7 +70,7 @@ export function PlantSelector() {
   }
 
   function handlePlantSelect(plant: PlantType) {
-    navigator.navigate('PlantSave', {plant});
+    navigator.navigate('PlantSave', { plant });
   }
 
   useEffect(() => {
@@ -103,7 +103,7 @@ export function PlantSelector() {
   }
 
   return (
-    <View className="flex-1 space-y-8 bg-white dark:bg-slate-900">
+    <SafeAreaView className="flex-1 space-y-8 bg-white dark:bg-slate-900">
       <View className="mt-6 space-y-6 px-8">
         <Header />
 
@@ -120,7 +120,7 @@ export function PlantSelector() {
         <FlatList
           data={enviroments}
           keyExtractor={item => String(item.key)}
-          renderItem={({item}) => (
+          renderItem={({ item }) => (
             <EnvironmentButton
               title={item.title}
               state={item.key === enviromentSelected ? 'active' : 'default'}
@@ -137,7 +137,7 @@ export function PlantSelector() {
         <FlatList
           data={filteredPlants}
           keyExtractor={item => String(item.id)}
-          renderItem={({item}) => (
+          renderItem={({ item }) => (
             <PlantCardPrimary
               data={item}
               onPress={() => handlePlantSelect(item)}
@@ -146,12 +146,12 @@ export function PlantSelector() {
           showsVerticalScrollIndicator={false}
           numColumns={2}
           onEndReachedThreshold={0.1}
-          onEndReached={({distanceFromEnd}) => handleFetchMore(distanceFromEnd)}
+          onEndReached={({ distanceFromEnd }) => handleFetchMore(distanceFromEnd)}
           ListFooterComponent={
             loadigMore ? <ActivityIndicator color={Colors.green} /> : <></>
           }
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
