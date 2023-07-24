@@ -4,18 +4,23 @@ import colors from 'tailwindcss/colors';
 import {PlantSelector} from '../pages/PlantSelector';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {MyPlants} from '../pages/MyPlants';
+import {useColorScheme} from 'react-native';
 
 const AppTab = createBottomTabNavigator();
 
 const AuthRoutes = () => {
+  const colorScheme = useColorScheme();
+
   return (
     <AppTab.Navigator
       screenOptions={{
-        tabBarActiveBackgroundColor: colors.green[100],
         tabBarActiveTintColor: colors.green[500],
-        tabBarInactiveTintColor: colors.gray[500],
+        tabBarInactiveTintColor:
+          colorScheme === 'light' ? colors.gray[500] : colors.white,
         tabBarLabelPosition: 'beside-icon',
         tabBarStyle: {
+          backgroundColor:
+            colorScheme === 'light' ? colors.white : colors.slate[800],
           height: 75,
         },
         headerShown: false,
