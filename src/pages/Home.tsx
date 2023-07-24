@@ -1,14 +1,13 @@
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {SafeAreaView, Image, TouchableOpacity} from 'react-native';
-
 import Feather from 'react-native-vector-icons/Feather';
-import wateringImg from '../assets/watering.png';
 import colors from 'tailwindcss/colors';
 import {Heading} from '../components/Heading';
 import {Text} from '../components/Text';
 import {StackRoutesList} from '../Routes/stack.routes';
 import notifications from '../lib/notifications';
+import wateringImg from '../assets/watering.png';
 
 export function Home() {
   const navigator = useNavigation<NavigationProp<StackRoutesList>>();
