@@ -37,9 +37,7 @@ export function Home() {
         onPress={() =>
           notifications.schduleNotification({
             title: 'Heeey, 🌱',
-            body:
-              'HORA DE REGAR AS SUAS PLANTAS' +
-              new Date(Date.now() + 30 * 1000),
+            body: 'HORA DE REGAR AS SUAS PLANTAS',
             date: new Date(Date.now() + 30 * 1000),
           })
         }>
