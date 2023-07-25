@@ -36,7 +36,8 @@ export const PlantCardSecundary = ({
         <Animated.View>
           <View>
             <RectButton
-              style={tw`relative right-5 mt-5 h-20 w-24 items-center justify-center rounded-2xl bg-red-500 pl-4`}
+              style={tw` rounded-2xl`}
+              className="relative right-5 mt-5 h-20 w-24 items-center justify-center  bg-red-500 pl-4 dark:bg-red-700"
               onPress={handleRemove}>
               <Feather name="trash" size={32} color={colors.white} />
             </RectButton>
