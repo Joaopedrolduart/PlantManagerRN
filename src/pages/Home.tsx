@@ -6,7 +6,7 @@ import colors from 'tailwindcss/colors';
 import {Heading} from '../components/Heading';
 import {Text} from '../components/Text';
 import {StackRoutesList} from '../Routes/stack.routes';
-import notifications from '../lib/notifications';
+// import notifications from '../lib/notifications';
 import wateringImg from '../assets/watering.png';
 
 export function Home() {
@@ -31,7 +31,7 @@ export function Home() {
         <Feather name="chevron-right" size={32} color={colors.white} />
       </TouchableOpacity>
 
-      <TouchableOpacity
+      {/* <TouchableOpacity
         activeOpacity={0.7}
         className="h-14 w-14 items-center justify-center rounded-2xl bg-red-600"
         onPress={() =>
@@ -42,7 +42,7 @@ export function Home() {
           })
         }>
         <Feather name="chevron-right" size={32} color={colors.white} />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </SafeAreaView>
   );
 }
